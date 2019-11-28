@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField]private GameObject _checkGroundPoint;
-    [SerializeField] private LayerMask _isGround;
+    [SerializeField]private GameObject _checkGroundPoint = null;
+    [SerializeField] private LayerMask _isGround = 0;
     private float _radiusCircle = 0.2f;
 
     public bool CheckGround()

@@ -7,6 +7,9 @@ TagManager:
   - Traffic
   - Arcade
   - Bot
+  - Sausage
+  - Snag
+  - Spoon
   layers:
   - Default
   - TransparentFX

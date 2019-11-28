@@ -19,18 +19,22 @@ public class Bot : MonoBehaviour
     [SerializeField] private bool _needToGo = false;
     [SerializeField] private float _newTrafficPositionX;
     [SerializeField] private float _newTrafficPositionY;
+    [SerializeField] public static bool goAnotherFloor = false;
 
-    [SerializeField]  public static bool goAnotherFloor = false;
+    [SerializeField] private LoadDate _load = null;
+    [SerializeField] private SaveDate _save = null;
 
     void Start()
     {
+        transform.position = _load.PositionBot();
         _traffic = GameObject.FindGameObjectsWithTag("Traffic");
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
-    {  
+    {
+        _save.PositionBot(transform.position.x, transform.position.y, transform.position.z);
         if (_needToGo == false)
         {
             if (_currentTraffic != 0)

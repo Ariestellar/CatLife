@@ -8,20 +8,27 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool _needToGo = false;
+    [SerializeField] public static float PositionPlayerX;
+    [SerializeField] public static float PositionPlayerY;
 
     private Rigidbody2D _rigidBody2d;
     private Animator _animator;    
     private float _speed = 0.2f;
     private Vector2 _worldPos;
 
+    [SerializeField] private LoadDate _load = null;
+    [SerializeField] private SaveDate _save = null;
+
     private void Start()
     {
+        transform.position = _load.PositionPlayer();
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
     
     private void FixedUpdate()
     {
+        _save.PositionPlayer(transform.position.x, transform.position.y, transform.position.z);
         if (Input.GetMouseButtonUp(0) == true)
         {
             Vector2 mousePos = Input.mousePosition;

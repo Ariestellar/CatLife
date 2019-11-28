@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectTracker : MonoBehaviour
 {
-    [SerializeField] private GameObject _objectTarget;
+    [SerializeField] private GameObject _objectTarget = null;
     private float _far = -10;
     void Update()
     {

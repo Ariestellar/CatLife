@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Player : MonoBehaviour
+public class GameData : MonoBehaviour
 {
+    [SerializeField] private LoadDate _load = null;
+    [SerializeField] private SaveDate _save = null;
+
     [Header("Потребности")]
     [SerializeField] private int _naturalNeed;
     [SerializeField] private int _hunger;
@@ -15,9 +17,18 @@ public class Player : MonoBehaviour
     [SerializeField] private int _card2;
     [SerializeField] private int _card3;
 
-    void Start()
+    [Header("Счёт")]
+    [SerializeField] public int ScoreTotal;
+
+    private void Start()
     {
-       
+        ScoreTotal = _load.Score();
+        ScoreTotal += _load.ScoreArcade01();
     }
+    private void Update()
+    {
+        _save.Score(ScoreTotal);
+    }
+
 
 }

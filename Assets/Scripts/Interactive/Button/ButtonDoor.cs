@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonDoor : MonoBehaviour
 {
-    public bool goAnotherFloor;
-
+    public bool goAnotherFloor;//для проверки актуальности анимации двери
 
     private void FixedUpdate()
     {

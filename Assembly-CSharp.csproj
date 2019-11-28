@@ -63,16 +63,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Arcade01\DestroyFood.cs" />
+    <Compile Include="Assets\Scripts\Arcade01\DropFood.cs" />
+    <Compile Include="Assets\Scripts\Arcade01\PlayerControllerArcade01.cs" />
+    <Compile Include="Assets\Scripts\Arcade01\UI.cs" />
     <Compile Include="Assets\Scripts\Bot.cs" />
-    <Compile Include="Assets\Scripts\DropFood.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\GroundChecker.cs" />
-    <Compile Include="Assets\Scripts\Interactive\ButtonArcade.cs" />
-    <Compile Include="Assets\Scripts\Interactive\ButtonDoor.cs" />
-    <Compile Include="Assets\Scripts\Interactive\ButtonDownPanel.cs" />
-    <Compile Include="Assets\Scripts\Interactive\ButtonMainMenu.cs" />
+    <Compile Include="Assets\Scripts\Interactive\Button\ButtonArcade.cs" />
+    <Compile Include="Assets\Scripts\Interactive\Button\ButtonDoor.cs" />
+    <Compile Include="Assets\Scripts\Interactive\Button\ButtonDownPanel.cs" />
+    <Compile Include="Assets\Scripts\Interactive\Button\ButtonMainMenu.cs" />
     <Compile Include="Assets\Scripts\Interactive\UIPanel.cs" />
+    <Compile Include="Assets\Scripts\LoadSave\LoadDate.cs" />
+    <Compile Include="Assets\Scripts\LoadSave\SaveDate.cs" />
     <Compile Include="Assets\Scripts\ObjectTracker.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -93,37 +98,37 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Ariestellar/CatLife/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/ASTROSLAV/CatLife/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
