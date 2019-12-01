@@ -33,4 +33,18 @@ public class LoadDate
         Vector3 position = new Vector3(PlayerPrefs.GetFloat("PositionBotX"), PlayerPrefs.GetFloat("PositionBotY"), PlayerPrefs.GetFloat("PositionBotZ"));
         return position;
     }
-}
+
+    public Needs Needs(string name, int timer)
+    {
+        Needs needs;
+        if (PlayerPrefs.HasKey($"Index{name}Needs"))
+        {
+            return needs = new Needs(name, PlayerPrefs.GetFloat($"Index{name}Needs"), timer, PlayerPrefs.GetInt($"Counter{name}Needs"));
+        }
+        else
+        {
+            return needs = new Needs(name, 0, timer, 0);
+        }
+    }
+
+   }

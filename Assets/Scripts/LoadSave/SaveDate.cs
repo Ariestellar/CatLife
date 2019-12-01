@@ -20,4 +20,9 @@ public class SaveDate
         PlayerPrefs.SetFloat("PositionBotY", positionY);
         PlayerPrefs.SetFloat("PositionBotZ", positionZ);
     }
+    public void CatsNeeds(Needs needs)
+    {
+        PlayerPrefs.SetFloat($"Index{needs._name}Needs", needs._currentIndexNeed);
+        PlayerPrefs.SetFloat($"Counter{needs._name}Needs", needs._counter);       
+    }
 }
