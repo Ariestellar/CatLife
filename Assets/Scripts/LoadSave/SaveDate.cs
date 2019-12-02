@@ -8,6 +8,14 @@ public class SaveDate
     {
         PlayerPrefs.SetInt("ScoreTotal", scoreTotal);
     }
+    public void ScoreArcade01(int scoreArcade01)
+    {
+        PlayerPrefs.SetInt("ScoreArcade01", scoreArcade01);
+    }
+    public void ScoreArcade02(int scoreArcade02)
+    {
+        PlayerPrefs.SetInt("ScoreArcade02", scoreArcade02);
+    }
     public void PositionPlayer(float positionX, float positionY, float positionZ)
     {
         PlayerPrefs.SetFloat("PositionPlayerX", positionX);
@@ -24,5 +32,10 @@ public class SaveDate
     {
         PlayerPrefs.SetFloat($"Index{needs._name}Needs", needs._currentIndexNeed);
         PlayerPrefs.SetFloat($"Counter{needs._name}Needs", needs._counter);       
+    }
+
+    public void CatsColor(string color)
+    {        
+        PlayerPrefs.SetString ($"CatsColor", color);        
     }
 }

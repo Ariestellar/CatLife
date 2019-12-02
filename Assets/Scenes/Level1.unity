@@ -430,7 +430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.81654805}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 250.53, y: -20.399117}
+  m_AnchoredPosition: {x: 250.53, y: -20.399136}
   m_SizeDelta: {x: 380.31, y: 40.798}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232115061
@@ -988,7 +988,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 6186262344680505039, guid: 794cb14093e4fbb4582c7de4de4a3fea,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.77053154, g: 0.7830189, b: 0.7497775, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1044,6 +1044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _needToGo: 0
+  _colorCat: 
+  _scripts: {fileID: 1601794818}
 --- !u!1 &511255328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1777,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771796852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1601794823}
+        m_MethodName: ExitLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Store
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &771796852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,7 +2140,7 @@ GameObject:
   - component: {fileID: 884544162}
   - component: {fileID: 884544161}
   m_Layer: 5
-  m_Name: Arcade02
+  m_Name: Arcade03
   m_TagString: Arcade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2443,7 +2456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23048028, y: 0.13716394}
   m_AnchorMax: {x: 0.7665197, y: 0.81654805}
-  m_AnchoredPosition: {x: -59.999905, y: 2}
+  m_AnchoredPosition: {x: -59.999866, y: 2}
   m_SizeDelta: {x: -136, y: -5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940786875
@@ -4894,7 +4907,7 @@ GameObject:
   - component: {fileID: 2035535976}
   - component: {fileID: 2035535975}
   m_Layer: 5
-  m_Name: Arcade03
+  m_Name: Arcade02
   m_TagString: Arcade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4961,7 +4974,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2035535977}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1601794822}
+        m_MethodName: PlayArcade02
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &2035535976
 BoxCollider2D:
   m_ObjectHideFlags: 0
