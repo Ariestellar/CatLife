@@ -11,6 +11,8 @@ TagManager:
   - Snag
   - Spoon
   - ClawSpot
+  - Shelf
+  - Destroyer
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Ground
   - Bot
   - Player
-  - 
+  - Shelf
   - 
   - 
   - 

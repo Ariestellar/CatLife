@@ -16,6 +16,10 @@ public class SaveDate
     {
         PlayerPrefs.SetInt("ScoreArcade02", scoreArcade02);
     }
+    public void ScoreArcade03(int scoreArcade03)
+    {
+        PlayerPrefs.SetInt("ScoreArcade03", scoreArcade03);
+    }
     public void PositionPlayer(float positionX, float positionY, float positionZ)
     {
         PlayerPrefs.SetFloat("PositionPlayerX", positionX);

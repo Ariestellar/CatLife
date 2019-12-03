@@ -31,6 +31,7 @@ public class GameData : MonoBehaviour
         ScoreTotal = _load.Score();
         ScoreTotal += _load.ScoreArcade01();
         ScoreTotal += _load.ScoreArcade02();
+        ScoreTotal += _load.ScoreArcade03();
     }
     private void FixedUpdate()
     {        

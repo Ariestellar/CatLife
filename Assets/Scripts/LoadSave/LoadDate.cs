@@ -45,6 +45,21 @@ public class LoadDate
         }
         return score;
     }
+    public int ScoreArcade03()
+    {
+        int score;
+
+        if (PlayerPrefs.HasKey("ScoreArcade03"))
+        {
+            score = PlayerPrefs.GetInt("ScoreArcade03");
+            PlayerPrefs.DeleteKey("ScoreArcade03");
+        }
+        else
+        {
+            score = 0;
+        }
+        return score;
+    }
     public Vector3 PositionPlayer()
     {        
         if (PlayerPrefs.HasKey("PositionPlayerX"))

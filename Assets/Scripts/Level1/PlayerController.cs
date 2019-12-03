@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public static float PositionPlayerY;
 
     [SerializeField]  private string _colorCat;
-    [SerializeField] private GameObject _scripts = null;//!!!!!!!!!!!!!!!!!!!!!!!!
+    [SerializeField] private GameObject _scripts = null;
     private GameData _gameData;    
 
     private Rigidbody2D _rigidBody2d;

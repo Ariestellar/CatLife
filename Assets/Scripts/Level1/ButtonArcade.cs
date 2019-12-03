@@ -16,5 +16,10 @@ public class ButtonArcade : MonoBehaviour
         SceneManager.LoadScene("Arcade02");
     }
 
+    public void PlayArcade03()
+    {
+        SceneManager.LoadScene("Arcade03");
+    }
+
 
 }
