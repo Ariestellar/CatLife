@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
-public class Buttons : MonoBehaviour
+public class ButtonStore : MonoBehaviour
 {
     [SerializeField] private GameObject _failurePanel = null;
     [SerializeField] private GameObject _lookPanel = null;
@@ -15,7 +15,7 @@ public class Buttons : MonoBehaviour
     [SerializeField] private TMP_Text _scoreTotalText = null;
     [SerializeField] private int _scoreTotal = 0;
 
-    public GameData gameData;
+    public CatIndicators gameData;
 
     private void Start()
     {

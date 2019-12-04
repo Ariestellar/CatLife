@@ -1399,8 +1399,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1031216591}
   - component: {fileID: 1031216590}
+  - component: {fileID: 1031216592}
   m_Layer: 0
-  m_Name: ScriptsUI
+  m_Name: Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,6 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7341f62e24d5eb4a84a41630a3136dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1683081489}
   _scoreText: {fileID: 1068972336}
 --- !u!4 &1031216591
 Transform:
@@ -1433,6 +1435,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1031216592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031216589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8b3a9b1c3e293488ae8e955a0a1705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1055591924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelLoos: {fileID: 1722551725}
+  _scripts: {fileID: 1031216589}
+  _rendererColor: {fileID: 0}
 --- !u!1 &1683466061
 GameObject:
   m_ObjectHideFlags: 0

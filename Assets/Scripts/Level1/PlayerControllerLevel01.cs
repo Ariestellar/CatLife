@@ -5,15 +5,14 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerLevel01 : MonoBehaviour
 {
     [SerializeField] private bool _needToGo = false;
     [SerializeField] public static float PositionPlayerX;
     [SerializeField] public static float PositionPlayerY;
 
-    [SerializeField]  private string _colorCat;
-    [SerializeField] private GameObject _scripts = null;
-    private GameData _gameData;    
+    [SerializeField] private ColorCatRenderer _rendererColor;
+    [SerializeField] private GameObject _scripts = null;   
 
     private Rigidbody2D _rigidBody2d;
     private Animator _animator;    
@@ -25,12 +24,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _gameData = _scripts.GetComponent<GameData>();
-        _colorCat = _load.CatsColor();                                        
-        GetComponent<SpriteRenderer>().color = _gameData.SetColor(_colorCat);
-        transform.position = _load.PositionPlayer();
+        _rendererColor = _scripts.GetComponent<ColorCatRenderer>();        
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        
+        GetComponent<SpriteRenderer>().color = _rendererColor.SetColor(_load.CatsColor());
+
+        transform.position = _load.PositionPlayer();        
     }
     
     private void FixedUpdate()
@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour
 
         if (_worldPos.x > transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector2(-1, 1);
         }
         else if(_worldPos.x < transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector2(1, 1);
         }
 
         if (_needToGo)
@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
             }            
         }        
     }
+    //Нажимаем по кнопке двери и перемещаемся на другой этаж
     public void OnClickGoAnotherFloor()
     {
         if (transform.position.y < 0f)
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(transform.position.x, -4f);
         }
     }
-
+    //Попадаем в триггер Аркады
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Arcade")
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
             other.GetComponent<Image>().enabled = true;
         }
     }
+    //Выходим из тригерра Аркады
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Arcade")

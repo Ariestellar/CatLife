@@ -4,27 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-
+//Реализует управление игрока в Аркаде№3
 public class PlayerControllerArcade03 : MonoBehaviour
-{
-    private Rigidbody2D _rigidBody2d;       
-    private float _direction;
-    private GroundChecker _groundChecker = null;
-    [SerializeField] private LoadDate _load = null;
-    [SerializeField] private GameData _gameData;
-    [SerializeField] private string _colorCat;
-    [SerializeField] private GameObject _scripts = null;
+{    
+    [SerializeField] private GameObject _scripts = null;//объект со скриптами
+    //Классы    
+    [SerializeField] private LoadDate _load = null;    
+    [SerializeField] private ColorCatRenderer _rendererColor;
+    private Rigidbody2D _rigidBody2d;
+    private GroundCheckerArcade03 _groundChecker;
+    //Поля
     [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private float _speed = 0.2f;
+    private float _direction;
 
     private void Start()
     {
-        _gameData = _scripts.GetComponent<GameData>();
-        _colorCat = _load.CatsColor();
-        GetComponent<SpriteRenderer>().color = _gameData.SetColor(_colorCat);
-
-        _groundChecker = GetComponent<GroundChecker>();               
-        _rigidBody2d = GetComponent<Rigidbody2D>();        
+        _rendererColor = _scripts.GetComponent<ColorCatRenderer>();             
+        _groundChecker = GetComponent<GroundCheckerArcade03>();               
+        _rigidBody2d = GetComponent<Rigidbody2D>();
+        //рендерим цвет персонажу подгружая его из памяти и обрабатывая методом
+        GetComponent<SpriteRenderer>().color = _rendererColor.SetColor(_load.CatsColor());
     }
 
     private void FixedUpdate()

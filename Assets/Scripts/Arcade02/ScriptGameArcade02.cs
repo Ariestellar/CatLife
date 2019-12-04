@@ -5,14 +5,14 @@ using UnityEngine;
 public class ScriptGameArcade02 : MonoBehaviour
 {
     [SerializeField] private GameObject _clawSpot = null;
-    [SerializeField] public static int Score;
-    [SerializeField] private int _timer = 50;
+    [SerializeField] public int _score { get; private set;}
 
-    private float _counter;
+    [SerializeField] private int _timer = 50;
+    private int _counter;
 
     void Start()
     {
-        Score = 0;
+        _score = 0;
     }
     
     void FixedUpdate()
@@ -24,8 +24,11 @@ public class ScriptGameArcade02 : MonoBehaviour
             _counter = _timer;
         }
     }
-
-    public void RespawnClawSpot()
+    public void IncreaseScore(int numberPoints)
+    {
+        _score += numberPoints;
+    }
+    private void RespawnClawSpot()
     {
         Instantiate(_clawSpot, new Vector2(Random.Range(-5, 5), Random.Range(3, -3)), Quaternion.identity);
     }

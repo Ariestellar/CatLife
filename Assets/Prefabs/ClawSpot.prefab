@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3562193053385683791}
   - component: {fileID: 3562193053385683784}
   - component: {fileID: 3562193053385683785}
-  - component: {fileID: 3562193053385683786}
+  - component: {fileID: -950487958255555015}
   m_Layer: 0
   m_Name: ClawSpot
   m_TagString: ClawSpot
@@ -122,7 +122,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3562193053385683786
+--- !u!114 &-950487958255555015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Реализует управление игрока в Аркаде№1
 public class PlayerControllerArcade01 : MonoBehaviour
 {
-    [SerializeField] private GameObject _panelLoos = null;
-    [SerializeField] public static int Score;
-
+    [SerializeField] private GameObject _panelLoos = null;//Панель проигрыша  
+    [SerializeField] private GameObject _scripts = null;//Объект со скриптами
+    //Классы
+    [SerializeField] private ColorCatRenderer _rendererColor;
+    [SerializeField] private LoadDate _load = null;
+    //Свойство
+    [SerializeField] public int _score { get; private set; }
     private void Start()
     {
-        Score = 0;
+        _score = 0;
+        _rendererColor = _scripts.GetComponent<ColorCatRenderer>();
+        
+        GetComponent<SpriteRenderer>().color = _rendererColor.SetColor(_load.CatsColor());
     }
 
     private void OnMouseDrag()
@@ -18,17 +25,16 @@ public class PlayerControllerArcade01 : MonoBehaviour
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);        
         transform.position = objPosition; 
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Sausage")
         {            
-            Score += 10;
+            _score += 10;
             Destroy(other.gameObject);
         }
         else if (other.tag == "Snag")
         {
-            Score += 20;
+            _score += 20;
             Destroy(other.gameObject);
         }
         else if (other.tag == "Spoon")

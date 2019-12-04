@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class ButtonDoor : MonoBehaviour
+//Реализует состояние кнопок-дверей на сцене
+public class DoorLevel01 : MonoBehaviour
 {
     public bool goAnotherFloor;//для проверки актуальности анимации двери
 
     private void FixedUpdate()
-    {
-        goAnotherFloor = Bot.goAnotherFloor;
+    {       
+        goAnotherFloor = GameObject.Find("Bot").GetComponent<BotLevel01>().goAnotherFloor;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,7 +18,7 @@ public class ButtonDoor : MonoBehaviour
             gameObject.GetComponent<Image>().enabled = true;
         }
 
-        if (other.tag == "Bot" && goAnotherFloor)
+        if (other.tag == "Bot" && goAnotherFloor)//Если бот которому нужно на другой этаж проходят возле двери
         {
             gameObject.GetComponent<Image>().enabled = true; 
         }

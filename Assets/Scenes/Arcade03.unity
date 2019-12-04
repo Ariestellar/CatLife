@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7439ac0e41081942801f8d27f7dfd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shelfSpot: {fileID: 2478398420500330023, guid: 1e37c95c03c84b643a75e57c72194b47,
+  _shelfPrefab: {fileID: 2478398420500330023, guid: 1e37c95c03c84b643a75e57c72194b47,
     type: 3}
 --- !u!4 &131608766
 Transform:
@@ -345,13 +345,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 131608763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9c8476b73c253479899a175a7aedf7, type: 3}
+  m_Script: {fileID: 11500000, guid: bb8b3a9b1c3e293488ae8e955a0a1705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _card1: 0
-  _card2: 0
-  _card3: 0
-  ScoreTotal: 0
 --- !u!1 &163682855
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,9 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3228cd8cf2aade84a96367466381448b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameData: {fileID: 0}
-  _colorCat: 
   _scripts: {fileID: 131608763}
+  _rendererColor: {fileID: 0}
   _jumpForce: 10
   _speed: 10
 --- !u!114 &163682861
@@ -1530,8 +1525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc5451d14956654b9b74c8d571ecfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shelfPrefab: {fileID: 2478398420500330023, guid: 1e37c95c03c84b643a75e57c72194b47,
-    type: 3}
+  _scripts: {fileID: 131608763}
 --- !u!1 &935478617
 GameObject:
   m_ObjectHideFlags: 0

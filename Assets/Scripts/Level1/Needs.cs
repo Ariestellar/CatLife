@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 [System.Serializable]
+//Класс реализующий нужды кота 
 public class Needs
 {
     private int _needTimer;
@@ -16,7 +17,7 @@ public class Needs
         this._needTimer = needTimer;
         this._name = name;
     }
-
+    //Метод прибавления пунктов нужд кота
     public void DemandGrowth()
     {
         this._counter += 1;

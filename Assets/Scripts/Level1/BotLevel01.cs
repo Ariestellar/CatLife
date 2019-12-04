@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-
-
-public class Bot : MonoBehaviour
+//Реализует передвижения и действия бота в игре
+public class BotLevel01 : MonoBehaviour
 {
-    private GameObject[] _traffic;
+    private GameObject[] _traffic;//Массив с точками передвижения
     private Rigidbody2D _rigidBody2d;
     private Animator _animator;
-    private float _speed = 0.1f;
+    private float _speed = 0.1f;//Скорость движения
     private int _numberRandomTraffic;
-    
-    [SerializeField] private float _currentTraffic = 0;
-    [SerializeField] private bool _needToGo = false;
+
+    [SerializeField] private float _currentTraffic = 0;//Номер текущего объекта к которому движется бот
+    [SerializeField] private bool _needToGo = false;//Состояние движения бота false- пока не получил новую точку передвижения, true- получил новую точку
+    //Координаты объекта к которому нужно идти
     [SerializeField] private float _newTrafficPositionX;
     [SerializeField] private float _newTrafficPositionY;
-    [SerializeField] public static bool goAnotherFloor = false;
+
+    [SerializeField] public bool goAnotherFloor{ get; private set;}//Нужно ли воспользоваться дверью на другой этаж(если объект на другом этаже).
 
     [SerializeField] private LoadDate _load = null;
     [SerializeField] private SaveDate _save = null;
@@ -27,7 +27,7 @@ public class Bot : MonoBehaviour
     void Start()
     {
         transform.position = _load.PositionBot();
-        _traffic = GameObject.FindGameObjectsWithTag("Traffic");
+        _traffic = GameObject.FindGameObjectsWithTag("Traffic");//Ищем объекта на сцене с тегом "Traffic"
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
@@ -82,7 +82,7 @@ public class Bot : MonoBehaviour
             }
         }
     }
-
+    //Определяет направление спрайта
     private void DirectionCheck()
     {
         if (_newTrafficPositionX > transform.position.x)

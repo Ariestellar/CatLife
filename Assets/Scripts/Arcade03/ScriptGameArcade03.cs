@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ScriptGameArcade03 : MonoBehaviour
 {
-    [SerializeField] private GameObject _shelfSpot = null;
-    [SerializeField] public static int Score;   
+    [SerializeField] private GameObject _shelfPrefab = null;
+    [SerializeField] public int _score {  get; private set; }   
 
     void Start()
     {
-        Score = 0;
+        _score = 0;
     }
-
-    void FixedUpdate()
+    //Респавн предметов для аркады очков в Аркаде
+    public void RespawnShelfSpot(float positionY)
     {
-       
+        Instantiate(_shelfPrefab, new Vector2(Random.Range(-5, 5), positionY), Quaternion.identity);
     }
-
-    public void RespawnShelfSpot()
+    //Получение очков в Аркаде
+    public void IncreaseScore(int numberPoints)
     {
-        Instantiate(_shelfSpot, new Vector2(Random.Range(-5, 5), Random.Range(3, -3)), Quaternion.identity);
+        _score += numberPoints;
     }
 }
