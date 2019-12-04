@@ -36,4 +36,9 @@ public class CatIndicators : MonoBehaviour
         _save.CatsNeeds(_hunger);
         _save.CatsNeeds(_instincts);
     }
+
+    public void ToSpendScore(int coast)
+    {
+        _scoreTotal -= coast;
+    }
 }

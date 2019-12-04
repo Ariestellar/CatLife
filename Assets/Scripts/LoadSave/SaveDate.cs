@@ -40,6 +40,11 @@ public class SaveDate
 
     public void CatsColor(string color)
     {        
-        PlayerPrefs.SetString ($"CatsColor", color);        
+        PlayerPrefs.SetString ("CatsColor", color);        
+    }
+
+    public void MajorProgress(float majorProgress)
+    {
+        PlayerPrefs.SetFloat("MajorProgress", majorProgress);
     }
 }

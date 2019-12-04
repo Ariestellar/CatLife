@@ -79,11 +79,14 @@
     <Compile Include="Assets\Scripts\Arcade03\UIArcade03.cs" />
     <Compile Include="Assets\Scripts\Common\ColorCatRenderer.cs" />
     <Compile Include="Assets\Scripts\Level1\BotLevel01.cs" />
+    <Compile Include="Assets\Scripts\Level1\CatCloseLevel01.cs" />
     <Compile Include="Assets\Scripts\Level1\CatIndicators.cs" />
     <Compile Include="Assets\Scripts\Level1\DoorLevel01.cs" />
     <Compile Include="Assets\Scripts\Level1\Needs.cs" />
     <Compile Include="Assets\Scripts\Level1\ObjectTrackerLevel01.cs" />
     <Compile Include="Assets\Scripts\Level1\PlayerControllerLevel01.cs" />
+    <Compile Include="Assets\Scripts\Level1\Skill.cs" />
+    <Compile Include="Assets\Scripts\Level1\SkillCardsLevel01.cs" />
     <Compile Include="Assets\Scripts\Level1\UILevel01.cs" />
     <Compile Include="Assets\Scripts\LoadSave\LoadDate.cs" />
     <Compile Include="Assets\Scripts\LoadSave\SaveDate.cs" />

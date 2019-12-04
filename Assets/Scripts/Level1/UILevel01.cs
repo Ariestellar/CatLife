@@ -8,19 +8,45 @@ using UnityEngine.SceneManagement;
 
 public class UILevel01 : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _scoreTotalText = null;   
+    [SerializeField] private TMP_Text _scoreTotalText = null;
     [SerializeField] private Image _barNaturalNeed = null;
     [SerializeField] private Image _barHunger = null;
     [SerializeField] private Image _barInstincts = null;
     [SerializeField] private CatIndicators _data = null;
 
+    [SerializeField] private Image _barPositiveMajorProgress = null;
+    [SerializeField] private Image _barNegativeMajorProgress = null;
+
+    [SerializeField] public float _majorProgress { get; private set; }
+
+    [SerializeField] private LoadDate _load = null;
+    [SerializeField] private SaveDate _save = null;
+
     private void Start()
     {
-        _data = GetComponent<CatIndicators>();        
+        _data = GetComponent<CatIndicators>();
+        _majorProgress = _load.MajorProgress();
     }
 
     private void FixedUpdate()
-    {        
+    {
+        _save.MajorProgress(_majorProgress);
+        if (_majorProgress > 0)
+        {
+            _barPositiveMajorProgress.fillAmount = _majorProgress;
+            _barNegativeMajorProgress.fillAmount = 0;
+        }
+        else if (_majorProgress < 0)
+        {
+            _barNegativeMajorProgress.fillAmount = -_majorProgress;
+            _barPositiveMajorProgress.fillAmount = 0;
+        }
+        else 
+        {
+            _barPositiveMajorProgress.fillAmount = 0;
+            _barNegativeMajorProgress.fillAmount = 0;
+        }             
+
        _barNaturalNeed.fillAmount = _data._natural._currentIndexNeed;
        _barHunger.fillAmount = _data._hunger._currentIndexNeed;
        _barInstincts.fillAmount = _data._instincts._currentIndexNeed;
@@ -28,6 +54,10 @@ public class UILevel01 : MonoBehaviour
 
     }
 
+    public void addMajorProgress(float point)
+    {
+        this._majorProgress += point;
+    }
     //Кнопки на сцене
     public void ShowProgressBar(Animator animator)
     {

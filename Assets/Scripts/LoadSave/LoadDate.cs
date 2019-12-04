@@ -108,4 +108,17 @@ public class LoadDate
         }        
     }
 
+    public float MajorProgress()
+    {
+        if (PlayerPrefs.HasKey("MajorProgress"))
+        {
+
+            return PlayerPrefs.GetFloat("MajorProgress");
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 }
