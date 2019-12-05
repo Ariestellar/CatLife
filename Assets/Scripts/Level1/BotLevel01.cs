@@ -53,12 +53,11 @@ public class BotLevel01 : MonoBehaviour
     private void FixedUpdate()
     {
         _barWorkBot.fillAmount = _progressWorkBot;
-        _save.PositionBot(transform.position.x, transform.position.y, transform.position.z);
-
-        
+        _save.PositionBot(transform.position.x, transform.position.y, transform.position.z);       
 
         if (_botStop)
-        {            
+        {
+            _animator.SetBool("IsWalk", false);
             _counter -= 1;
             if (_counter % _counterPart == 0)
             {
@@ -87,6 +86,7 @@ public class BotLevel01 : MonoBehaviour
         }
         else 
         {
+            _animator.SetBool("IsWalk", true);
             if (_needToGo == false)//Если персонаж никуда не идет:
             {
                 if (_currentTrafficForAnotherFloor != 0)//Если у персонажа текущий траффик не равен нулю, значит его цель находится на другом этаже:
@@ -111,7 +111,7 @@ public class BotLevel01 : MonoBehaviour
                     _newTrafficPositionX = 8;//ставим координаты двери в позицию для перемещения               
                 }
                 _needToGo = true;
-                _animator.SetBool("IsWalk", true);
+                //_animator.SetBool("IsWalk", true);
 
             }
 
@@ -122,7 +122,7 @@ public class BotLevel01 : MonoBehaviour
 
                 if (Vector2.Distance(new Vector2(transform.position.x, 0), new Vector2(_newTrafficPositionX, 0)) < 1)//если до позиции меньше одного пункта, то пришли:
                 {
-                    _animator.SetBool("IsWalk", false);
+                    //_animator.SetBool("IsWalk", false);
                     _needToGo = false;
                     
 

@@ -6,15 +6,13 @@ public class DestroyerArcade03 : MonoBehaviour
 {    
     [SerializeField] private GameObject _scripts = null;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   private void OnCollisionEnter2D(Collision2D collision)
    {
         if (collision.gameObject.tag == "Shelf") 
         {            
             _scripts.GetComponent<ScriptGameArcade03>().IncreaseScore(10);            
             _scripts.GetComponent<ScriptGameArcade03>().RespawnShelfSpot(transform.position.y + 18);
             Destroy(collision.gameObject);
-        }
-                
-    }
-   
+        }                
+    }    
 }

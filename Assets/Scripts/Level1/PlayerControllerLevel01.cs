@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 
@@ -12,7 +13,10 @@ public class PlayerControllerLevel01 : MonoBehaviour
     [SerializeField] public static float PositionPlayerY;
 
     [SerializeField] private ColorCatRenderer _rendererColor;
-    [SerializeField] private GameObject _scripts = null;   
+    [SerializeField] private GameObject _scripts = null;
+
+    //[SerializeField] private AudioClip _scream = null;
+    //private AudioSource _audio;
 
     private Rigidbody2D _rigidBody2d;
     private Animator _animator;    
@@ -27,7 +31,9 @@ public class PlayerControllerLevel01 : MonoBehaviour
         _rendererColor = _scripts.GetComponent<ColorCatRenderer>();        
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        
+        //_audio = GetComponent<AudioSource>();
+
+
         GetComponent<SpriteRenderer>().color = _rendererColor.SetColor(_load.CatsColor());
 
         transform.position = _load.PositionPlayer();        
@@ -93,5 +99,10 @@ public class PlayerControllerLevel01 : MonoBehaviour
         }
     }
 
+   /* public void CatScream()
+    {
+        _scripts.GetComponent<UILevel01>().addMajorProgress(-0.1f);
+        //_audio.PlayOneShot(_scream);
+    }*/
 
 }

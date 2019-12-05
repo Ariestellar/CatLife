@@ -15,8 +15,9 @@ public class ButtonMainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void newGame()
+    public void newGame(string LevelLabel)
     {
         PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(LevelLabel);
     }
 }

@@ -21,9 +21,9 @@ public class PlayerControllerArcade01 : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, 100f, 10f);
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);        
-        transform.position = objPosition; 
+        transform.position = new Vector3(objPosition.x,transform.position.y,transform.position.z);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -13,6 +13,7 @@ public class UILevel01 : MonoBehaviour
     [SerializeField] private Image _barHunger = null;
     [SerializeField] private Image _barInstincts = null;
     [SerializeField] private CatIndicators _data = null;
+    //[SerializeField] private PlayerControllerLevel01 _playerController = null;
 
     [SerializeField] private Image _barPositiveMajorProgress = null;
     [SerializeField] private Image _barNegativeMajorProgress = null;
@@ -51,6 +52,11 @@ public class UILevel01 : MonoBehaviour
        _barHunger.fillAmount = _data._hunger._currentIndexNeed;
        _barInstincts.fillAmount = _data._instincts._currentIndexNeed;
        _scoreTotalText.text = Convert.ToString(_data._scoreTotal);
+
+        /*if (_barNaturalNeed.fillAmount >= 1 || _barHunger.fillAmount >= 1 || _barInstincts.fillAmount >= 1)
+        {
+            _playerController.CatScream();
+        }*/
 
     }
 
