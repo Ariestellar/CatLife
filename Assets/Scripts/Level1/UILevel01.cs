@@ -62,7 +62,7 @@ public class UILevel01 : MonoBehaviour
 
     public void addMajorProgress(float point)
     {
-        this._majorProgress += point;
+        Mathf.Clamp(this._majorProgress += point, 0,1);
     }
     //Кнопки на сцене
     public void ShowProgressBar(Animator animator)
