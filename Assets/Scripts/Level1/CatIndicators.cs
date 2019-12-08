@@ -12,7 +12,12 @@ public class CatIndicators : MonoBehaviour
     [SerializeField] public Needs _hunger { get; private set; }
     [SerializeField] public Needs _instincts { get; private set; }    
     
-    [SerializeField] public int _scoreTotal { get; private set; } 
+    [SerializeField] public int _scoreTotal { get; private set; }
+    private int _scoreArcade01;
+    private int _scoreArcade02;
+    private int _scoreArcade03;
+
+
 
     private void Start()
     {
@@ -20,10 +25,26 @@ public class CatIndicators : MonoBehaviour
         _hunger = _load.Needs("Hunger", 500);
         _instincts = _load.Needs("Instincts", 900);
 
+        _scoreArcade01 = _load.ScoreArcade01();
+        _scoreArcade02 = _load.ScoreArcade02();
+        _scoreArcade03 = _load.ScoreArcade03();
+        
         _scoreTotal = _load.Score();
-        _scoreTotal += _load.ScoreArcade01();
-        _scoreTotal += _load.ScoreArcade02();
-        _scoreTotal += _load.ScoreArcade03();
+
+        _scoreTotal += _scoreArcade01;
+        if (_scoreArcade01 > 0)
+        {
+            _hunger.FillTheNeed();
+        }
+
+        _scoreTotal += _scoreArcade02;
+
+        _scoreTotal += _scoreArcade03;        
+        if (_scoreArcade03 > 0)
+        {
+            _instincts.FillTheNeed();
+        }
+
     }
     private void FixedUpdate()
     {        

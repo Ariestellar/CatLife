@@ -10,6 +10,8 @@ public class SkillCardsLevel01 : MonoBehaviour
     [SerializeField] private GameObject _bot = null;
     [SerializeField] private GameObject _scripts = null;
     [SerializeField] private GameObject _catClose = null;
+    [SerializeField] private GameObject _warningPanelAnswerBar = null;
+    [SerializeField] private GameObject _warningPanelAnswerBarSingle = null;
 
     [SerializeField] private GameObject _warningPanel = null;
     [SerializeField] private TMP_Text _warningPanelText = null;    
@@ -57,6 +59,8 @@ public class SkillCardsLevel01 : MonoBehaviour
         {
             _warningPanel.SetActive(true);
             _warningPanelText.text = $"Хотите разблокировать карту? {card._name} за {card._costCard / 4}";
+            _warningPanelAnswerBar.SetActive(true);
+            _warningPanelAnswerBarSingle.SetActive(false);
         }
         
     }
@@ -87,6 +91,8 @@ public class SkillCardsLevel01 : MonoBehaviour
         else if (_scripts.GetComponent<CatIndicators>()._scoreTotal < card._costCard / 4) 
         {
             _warningPanelText.text = "У вас нехватает котоочков(";
+            _warningPanelAnswerBar.SetActive(false);
+           _warningPanelAnswerBarSingle.SetActive(true);
         }
     }
 

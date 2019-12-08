@@ -47,4 +47,14 @@ public class SaveDate
     {
         PlayerPrefs.SetFloat("MajorProgress", majorProgress);
     }
+    public void StatusUIPanels(int showProgressBar, int showDownPanel)
+    {
+        PlayerPrefs.SetInt("ShowProgressBar", showProgressBar);
+        PlayerPrefs.SetInt("ShowDownPanel", showDownPanel);
+    }
+
+    public void TutorialPanel (int tutorialCompleted)
+    {
+        PlayerPrefs.SetInt("TutorialCompleted", tutorialCompleted);        
+    }
 }

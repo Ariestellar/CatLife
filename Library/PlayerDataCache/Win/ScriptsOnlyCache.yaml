@@ -42,8 +42,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -741,7 +743,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 355682c2c52831fdbb316dea0252ad4d
+      Hash: 430737712eab116862c855b15eb65ed4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerControllerLevel01
@@ -795,7 +797,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 688f412292c95bbda6b04208aaa957d8
+      Hash: dee7481f63f30311052c31e4a69e317e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkillCardsLevel01
@@ -921,7 +923,7 @@ ScriptsOnlyBuild:
     className: DestroyerArcade03
   - hash:
       serializedVersion: 2
-      Hash: f0b2eb3f429fc4f3abee96db892f6735
+      Hash: 8ea8dcf911ebaf23c75018ccefca7777
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UILevel01
@@ -1053,4 +1055,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Arcade02.unity
   - Assets/Scenes/Arcade03.unity
   - Assets/Scenes/Store.unity
-  playerPath: C:/Users/ASTROSLAV/Desktop/Cat/CatLife.exe
+  playerPath: C:/Users/ASTROSLAV/Downloads/CatLife/CatLife.exe

@@ -28,5 +28,10 @@ public class Needs
         }        
     }
 
+    public void FillTheNeed()
+    {       
+            this._currentIndexNeed = 0;          
+        
+    }
 }
 

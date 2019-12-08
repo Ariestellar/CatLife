@@ -14,6 +14,7 @@ public class PlayerControllerLevel01 : MonoBehaviour
 
     [SerializeField] private ColorCatRenderer _rendererColor;
     [SerializeField] private GameObject _scripts = null;
+    [SerializeField] private GameObject _screamSprite = null;
 
     //[SerializeField] private AudioClip _scream = null;
     //private AudioSource _audio;
@@ -45,18 +46,25 @@ public class PlayerControllerLevel01 : MonoBehaviour
         if (Input.GetMouseButtonUp(0) == true)
         {
             Vector2 mousePos = Input.mousePosition;
-            _worldPos = Camera.main.ScreenToWorldPoint(mousePos);            
-            _needToGo = true;
-            _animator.SetBool("IsWalk", true);
-        }        
+            if (Input.mousePosition.y < 455.4f && Input.mousePosition.y > 331.1f)
+            {
+                _worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+                _needToGo = true;
+                _animator.SetBool("IsWalk", true);
 
+            }
+
+        }
+        //Debug.Log(Input.mousePosition);
         if (_worldPos.x > transform.position.x)
         {
             transform.localScale = new Vector2(-1, 1);
+            _screamSprite.transform.localScale = new Vector2(-1, 1);
         }
         else if(_worldPos.x < transform.position.x)
         {
             transform.localScale = new Vector2(1, 1);
+            _screamSprite.transform.localScale = new Vector2(1, 1);
         }
 
         if (_needToGo)
@@ -99,9 +107,16 @@ public class PlayerControllerLevel01 : MonoBehaviour
         }
     }
 
-   /* public void CatScream()
+   /*public void CatScream()
     {
-        _scripts.GetComponent<UILevel01>().addMajorProgress(-0.1f);
+        this._counter += 1;
+        if (_counter == _needTimer)
+        {
+            _scripts.GetComponent<UILevel01>().addMajorProgress(-0.1f);
+            _screamSprite.SetActive(true);
+            this._counter = 0;
+        }
+        
         //_audio.PlayOneShot(_scream);
     }*/
 

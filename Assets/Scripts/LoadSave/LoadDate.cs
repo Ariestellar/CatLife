@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
@@ -118,6 +119,45 @@ public class LoadDate
         else
         {
             return 0;
+        }
+    }
+
+    public bool StatusUIPanelsProgressBar()
+    {   
+        if (PlayerPrefs.HasKey("ShowProgressBar"))
+        {
+
+            return Convert.ToBoolean(PlayerPrefs.GetInt("ShowProgressBar"));
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool StatusUIPanelsShowDownPanel ()
+    {
+        if (PlayerPrefs.HasKey("ShowDownPanel"))
+        {
+
+            return Convert.ToBoolean(PlayerPrefs.GetInt("ShowDownPanel"));
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool TutorialPanel()
+    {
+        if (PlayerPrefs.HasKey("TutorialCompleted"))
+        {
+
+            return Convert.ToBoolean(PlayerPrefs.GetInt("TutorialCompleted"));
+        }
+        else
+        {
+            return false;
         }
     }
 

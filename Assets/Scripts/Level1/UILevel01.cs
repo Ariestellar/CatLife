@@ -12,8 +12,7 @@ public class UILevel01 : MonoBehaviour
     [SerializeField] private Image _barNaturalNeed = null;
     [SerializeField] private Image _barHunger = null;
     [SerializeField] private Image _barInstincts = null;
-    [SerializeField] private CatIndicators _data = null;
-    //[SerializeField] private PlayerControllerLevel01 _playerController = null;
+    [SerializeField] private CatIndicators _data = null;   
 
     [SerializeField] private Image _barPositiveMajorProgress = null;
     [SerializeField] private Image _barNegativeMajorProgress = null;
@@ -23,15 +22,48 @@ public class UILevel01 : MonoBehaviour
     [SerializeField] private LoadDate _load = null;
     [SerializeField] private SaveDate _save = null;
 
+    [SerializeField] private bool _showProgressBar = false;
+    [SerializeField] private bool _showDownPanel = false;
+    [SerializeField] public Animator animatorProgressBar;
+    [SerializeField] public Animator animatorDownPanel;
+
+    [SerializeField] public GameObject _tutorialPanel;
+    [SerializeField] public bool _tutorialCompleted = false;
+
+    [SerializeField] private GameObject _screamSprite = null;
+    [SerializeField] private int _needTimer = 50;
+    [SerializeField] private int _counter;
+
+
     private void Start()
     {
+       
         _data = GetComponent<CatIndicators>();
         _majorProgress = _load.MajorProgress();
+        _showProgressBar =_load.StatusUIPanelsProgressBar();
+       _showDownPanel = _load.StatusUIPanelsShowDownPanel();
+        _tutorialCompleted = _load.TutorialPanel();
+        if (!_tutorialCompleted)
+        {
+            _tutorialPanel.SetActive(true);
+        }
+
+        if (_showProgressBar)
+        {
+            animatorProgressBar.SetBool("isOpen", !animatorProgressBar.GetBool("isOpen"));
+        }
+        if (_showDownPanel)
+        {
+            animatorDownPanel.SetBool("isOpen", !animatorDownPanel.GetBool("isOpen"));
+        }
+
     }
 
     private void FixedUpdate()
     {
         _save.MajorProgress(_majorProgress);
+        _save.StatusUIPanels(Convert.ToInt32(_showProgressBar), Convert.ToInt32(_showDownPanel));
+
         if (_majorProgress > 0)
         {
             _barPositiveMajorProgress.fillAmount = _majorProgress;
@@ -53,10 +85,16 @@ public class UILevel01 : MonoBehaviour
        _barInstincts.fillAmount = _data._instincts._currentIndexNeed;
        _scoreTotalText.text = Convert.ToString(_data._scoreTotal);
 
-        /*if (_barNaturalNeed.fillAmount >= 1 || _barHunger.fillAmount >= 1 || _barInstincts.fillAmount >= 1)
+        if (_barNaturalNeed.fillAmount >= 1 || _barHunger.fillAmount >= 1 || _barInstincts.fillAmount >= 1)
         {
-            _playerController.CatScream();
-        }*/
+            _counter += 1;
+            if (_counter == _needTimer)
+            {
+                _majorProgress -= 0.1f;
+                _screamSprite.SetActive(true);
+                _counter = 0;
+            }            
+        }
 
     }
 
@@ -68,10 +106,12 @@ public class UILevel01 : MonoBehaviour
     public void ShowProgressBar(Animator animator)
     {
         animator.SetBool("isOpen",!animator.GetBool("isOpen"));
+        _showProgressBar = !_showProgressBar;
     }
     public void ShowDownPanel(Animator animator)
     {
         animator.SetBool("isOpen", !animator.GetBool("isOpen"));
+        _showDownPanel = !_showDownPanel;
     }
     public void PlayArcade01()
     {
@@ -85,8 +125,18 @@ public class UILevel01 : MonoBehaviour
     {
         SceneManager.LoadScene("Arcade03");
     }
+    public void GoToTheToilet()
+    {
+        GetComponent<CatIndicators>()._natural.FillTheNeed();
+    }
     public void ExitLevel(string LevelLabel)
     {
         SceneManager.LoadScene(LevelLabel);
+    }
+    public void ShowTutorialPanel()
+    {
+        _tutorialPanel.SetActive(false);
+        _tutorialCompleted = true;
+        _save.TutorialPanel(Convert.ToInt32(_tutorialCompleted));
     }
 }
