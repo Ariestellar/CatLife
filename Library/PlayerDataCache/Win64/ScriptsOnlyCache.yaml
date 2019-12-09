@@ -591,7 +591,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: ba3584eb54b2d08daa035645c6c39b3e
+      Hash: ab3422d903a7367d0e938342f420e7da
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIArcade01
@@ -771,7 +771,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 228debaebd01ca6b691f14354d986e61
+      Hash: 4ba5c8f76ef620115f7169e3f13b5f9b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIArcade03
@@ -795,7 +795,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 9762a82670f7f4c9660b5a7ce0d9c2e0
+      Hash: fe1ce3eb50fd79fe28a13775bdacac10
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkillCardsLevel01
@@ -921,7 +921,7 @@ ScriptsOnlyBuild:
     className: DestroyerArcade03
   - hash:
       serializedVersion: 2
-      Hash: 7f6cdac12456dfccb6713d77e24f8967
+      Hash: 3aaeeb9a3d8408e95a28620b3df57bbb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UILevel01
@@ -1053,4 +1053,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Arcade02.unity
   - Assets/Scenes/Arcade03.unity
   - Assets/Scenes/Store.unity
-  playerPath: C:/CatLife/CatLife.exe
+  playerPath: C:/Users/Ariestellar/Desktop/CatLife/CatLife.exe

@@ -62,4 +62,15 @@ public class SaveDate
     {
         PlayerPrefs.SetInt($"UsedCard{usedCard._name}", Convert.ToInt32(usedCard._usedСard));
     }
+
+    public void LerningPanelArcade01(bool lerningPanel)
+    {
+        PlayerPrefs.SetInt($"LerningPanelArcade01", Convert.ToInt32(lerningPanel));
+    }
+
+    public void LerningPanelArcade02(bool lerningPanel)
+    {
+        PlayerPrefs.SetInt($"LerningPanelArcade02", Convert.ToInt32(lerningPanel));
+    }
+
 }

@@ -173,5 +173,29 @@ public class LoadDate
             return false;
         }
     }
+    public bool LerningPanelArcade01()
+    {
+        if (PlayerPrefs.HasKey("LerningPanelArcade01"))
+        {
+
+            return Convert.ToBoolean(PlayerPrefs.GetInt("LerningPanelArcade01"));
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public bool LerningPanelArcade02()
+    {
+        if (PlayerPrefs.HasKey("LerningPanelArcade02"))
+        {
+
+            return Convert.ToBoolean(PlayerPrefs.GetInt("LerningPanelArcade02"));
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }

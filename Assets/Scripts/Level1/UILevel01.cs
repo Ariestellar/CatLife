@@ -30,6 +30,8 @@ public class UILevel01 : MonoBehaviour
     [SerializeField] public Animator animatorDownPanel;
 
     [SerializeField] public GameObject _tutorialPanel;
+    [SerializeField] public GameObject _tutorialPanel2;
+
     [SerializeField] public bool _tutorialCompleted = false;
 
     [SerializeField] public GameObject _infoPanel1;
@@ -148,9 +150,14 @@ public class UILevel01 : MonoBehaviour
     {
         SceneManager.LoadScene(LevelLabel);
     }
-    public void ShowTutorialPanel()
+    public void ShowTutorialPanelFirst()
     {
         _tutorialPanel.SetActive(false);
+        _tutorialPanel2.SetActive(true);
+    }
+    public void ShowTutorialPanel()
+    {
+        _tutorialPanel2.SetActive(false);
         _tutorialCompleted = true;
         _save.TutorialPanel(Convert.ToInt32(_tutorialCompleted));
         Time.timeScale = 1;
