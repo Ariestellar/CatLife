@@ -43,17 +43,17 @@ public class UILevel01 : MonoBehaviour
 
 
     private void Start()
-    {
-       
+    {        
         _data = GetComponent<CatIndicators>();
         _majorProgress = _load.MajorProgress();
         _showProgressBar =_load.StatusUIPanelsProgressBar();
         _showDownPanel = _load.StatusUIPanelsShowDownPanel();
-        _tutorialCompleted = _load.TutorialPanel();
+        _tutorialCompleted = _load.TutorialPanel();        
 
         if (!_tutorialCompleted)
         {
             _tutorialPanel.SetActive(true);
+            Time.timeScale = 0;
         }
 
         if (_showProgressBar)
@@ -153,6 +153,7 @@ public class UILevel01 : MonoBehaviour
         _tutorialPanel.SetActive(false);
         _tutorialCompleted = true;
         _save.TutorialPanel(Convert.ToInt32(_tutorialCompleted));
+        Time.timeScale = 1;
     }
     public void ShowInfoPanel(int number)
     {

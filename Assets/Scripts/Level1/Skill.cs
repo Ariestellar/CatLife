@@ -12,12 +12,12 @@ public class Skill
     private int _factor;//Множитель
     private bool _unlock;//Разблокированна ли карта в магазине    
 
-    public Skill(string name, int _costCard)
+    public Skill(string name, int _costCard, int factor)
     {
         this._costCard = _costCard;        
         this._name = name;
         this._unlock = false;
-        this._factor = 1;        
+        this._factor = factor;        
     }
     //Действие карты
     //Принимает состояние бота человека(Свободен/занят)

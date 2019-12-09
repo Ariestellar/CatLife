@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-//Недоделал
+
 public class SkillCardsLevel01 : MonoBehaviour
 {
-    [SerializeField] private GameObject _bot = null;
-    [SerializeField] private GameObject _scripts = null;
+    [SerializeField] private GameObject _bot = null;    
     [SerializeField] private GameObject _catClose = null;
     [SerializeField] private GameObject _warningPanelAnswerBar = null;
     [SerializeField] private GameObject _warningPanelAnswerBarSingle = null;
@@ -23,15 +22,28 @@ public class SkillCardsLevel01 : MonoBehaviour
     [SerializeField] private GameObject _purrButton = null;
     [SerializeField] private GameObject _rubAgainstFeetButton = null;
 
-    [SerializeField] private Skill _meow = new Skill("Мяу", 10000);
-    [SerializeField] private Skill _purr = new Skill("Мрр", 20000);
-    [SerializeField] private Skill _rubAgainstFeet = new Skill("Потереться о ноги", 50000);
+    [SerializeField] private GameObject _meowButtonYes = null;
+    [SerializeField] private GameObject _purrButtonYes = null;
+    [SerializeField] private GameObject _rubAgainstFeetButtonYes = null;
+
+
+    [SerializeField] private Skill _meow = new Skill("Мяу", 5000, 1);
+    [SerializeField] private Skill _purr = new Skill("Мрр", 8000, 2);
+    [SerializeField] private Skill _rubAgainstFeet = new Skill("Потереться о ноги", 10000, 3);
    
     private void Start()
     {
         _meow._usedСard = _load.UsedCard(_meow);
         _purr._usedСard = _load.UsedCard(_purr);
-        _rubAgainstFeet._usedСard = _load.UsedCard(_rubAgainstFeet);
+        _rubAgainstFeet._usedСard = _load.UsedCard(_rubAgainstFeet);       
+
+    }
+
+    private void FixedUpdate()
+    {
+        _save.UsedCard(_meow);
+        _save.UsedCard(_purr);
+        _save.UsedCard(_rubAgainstFeet);
 
         if (_meow._usedСard == true)
         {
@@ -48,16 +60,6 @@ public class SkillCardsLevel01 : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        _save.UsedCard(_meow);
-        _save.UsedCard(_purr);
-        _save.UsedCard(_rubAgainstFeet);
-
-        
-
-    }
-
     public void EnableSkill(string nameSkill)
     {
         Skill card = null;
@@ -65,12 +67,15 @@ public class SkillCardsLevel01 : MonoBehaviour
         {
             case "Мяу":
                 card = _meow;
+                _meowButtonYes.SetActive(true);
                 break;
             case "Мурр":
-                card = _purr;                
+                card = _purr;
+                _purrButtonYes.SetActive(true);
                 break;
             case "Потереться о ноги":
-                card = _rubAgainstFeet;               
+                card = _rubAgainstFeet;
+                _rubAgainstFeetButtonYes.SetActive(true);
                 break;
             default:
                 break;
@@ -78,9 +83,8 @@ public class SkillCardsLevel01 : MonoBehaviour
 
         if (card._usedСard == false)
         {            
-            _scripts.GetComponent<UILevel01>().addMajorProgress(card.ActionCard(_bot.GetComponent<BotLevel01>()._doNotDisturb, _catClose.GetComponent<CatCloseLevel01>()._catClose));
-            card.UsedCardDeActivity();
-            GetComponentInChildren<Button>().GetComponent<Image>().color = Color.red;
+            GetComponent<UILevel01>().addMajorProgress(card.ActionCard(_bot.GetComponent<BotLevel01>()._doNotDisturb, _catClose.GetComponent<CatCloseLevel01>()._catClose));
+            
             
         }
         else if (card._usedСard == true) 
@@ -111,12 +115,12 @@ public class SkillCardsLevel01 : MonoBehaviour
                 break;
         }
 
-        if (_scripts.GetComponent<CatIndicators>()._scoreTotal >= card._costCard / 4)
+        if (GetComponent<CatIndicators>()._scoreTotal >= card._costCard / 4)
         {
-            _scripts.GetComponent<CatIndicators>().ToSpendScore(card.CardActivity());
+            GetComponent<CatIndicators>().ToSpendScore(card.CardActivity());
             _warningPanel.SetActive(false);
         }
-        else if (_scripts.GetComponent<CatIndicators>()._scoreTotal < card._costCard / 4) 
+        else if (GetComponent<CatIndicators>()._scoreTotal < card._costCard / 4) 
         {
             _warningPanelText.text = "У вас нехватает котоочков(";
             _warningPanelAnswerBar.SetActive(false);
@@ -127,7 +131,7 @@ public class SkillCardsLevel01 : MonoBehaviour
     public void CloseWraningPanelNO()
     {
         _warningPanel.SetActive(false);
-    }      
+    }   
         
 
 }
