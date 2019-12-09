@@ -21,6 +21,8 @@ public class UILevel01 : MonoBehaviour
 
     [SerializeField] private LoadDate _load = null;
     [SerializeField] private SaveDate _save = null;
+    [SerializeField] private GameObject _player = null;
+
 
     [SerializeField] private bool _showProgressBar = false;
     [SerializeField] private bool _showDownPanel = false;
@@ -29,6 +31,11 @@ public class UILevel01 : MonoBehaviour
 
     [SerializeField] public GameObject _tutorialPanel;
     [SerializeField] public bool _tutorialCompleted = false;
+
+    [SerializeField] public GameObject _infoPanel1;
+    [SerializeField] public GameObject _infoPanel2;
+
+    [SerializeField] public GameObject _winPanel;
 
     [SerializeField] private GameObject _screamSprite = null;
     [SerializeField] private int _needTimer = 50;
@@ -41,8 +48,9 @@ public class UILevel01 : MonoBehaviour
         _data = GetComponent<CatIndicators>();
         _majorProgress = _load.MajorProgress();
         _showProgressBar =_load.StatusUIPanelsProgressBar();
-       _showDownPanel = _load.StatusUIPanelsShowDownPanel();
+        _showDownPanel = _load.StatusUIPanelsShowDownPanel();
         _tutorialCompleted = _load.TutorialPanel();
+
         if (!_tutorialCompleted)
         {
             _tutorialPanel.SetActive(true);
@@ -61,6 +69,12 @@ public class UILevel01 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_majorProgress == 1)
+        {
+            _winPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+
         _save.MajorProgress(_majorProgress);
         _save.StatusUIPanels(Convert.ToInt32(_showProgressBar), Convert.ToInt32(_showDownPanel));
 
@@ -92,6 +106,7 @@ public class UILevel01 : MonoBehaviour
             {
                 _majorProgress -= 0.1f;
                 _screamSprite.SetActive(true);
+                _player.GetComponent<PlayerControllerLevel01>().CatScream();
                 _counter = 0;
             }            
         }
@@ -138,5 +153,29 @@ public class UILevel01 : MonoBehaviour
         _tutorialPanel.SetActive(false);
         _tutorialCompleted = true;
         _save.TutorialPanel(Convert.ToInt32(_tutorialCompleted));
+    }
+    public void ShowInfoPanel(int number)
+    {
+        if (number == 1) 
+        {
+            _infoPanel1.SetActive(true);
+        }
+        else if (number == 2)
+        {
+            _infoPanel1.SetActive(false);
+            _infoPanel2.SetActive(true);
+        }
+        else if (number == 3)
+        {
+            _infoPanel2.SetActive(false);            
+        }
+
+    }
+
+    public void OkWinPanel()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+        PlayerPrefs.DeleteAll();
     }
 }

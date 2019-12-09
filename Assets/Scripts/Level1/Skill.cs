@@ -7,7 +7,7 @@ using UnityEngine;
 public class Skill
 {
     public int _costCard { get; private set; }//Стоимость карты
-    public bool _usedСard{ get; private set; }//Активность карты использованна или нет
+    public bool _usedСard;//Активность карты использованна или нет
     public string _name { get; private set; }//Имя карты
     private int _factor;//Множитель
     private bool _unlock;//Разблокированна ли карта в магазине    

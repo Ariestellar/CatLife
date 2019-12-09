@@ -131,7 +131,7 @@ public class LoadDate
         }
         else
         {
-            return false;
+            return true;
         }
     }
 
@@ -144,7 +144,7 @@ public class LoadDate
         }
         else
         {
-            return false;
+            return true;
         }
     }
 
@@ -154,6 +154,19 @@ public class LoadDate
         {
 
             return Convert.ToBoolean(PlayerPrefs.GetInt("TutorialCompleted"));
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool UsedCard(Skill usedCard)
+    {
+        if (PlayerPrefs.HasKey($"UsedCard{usedCard._name}"))
+        {
+
+            return Convert.ToBoolean(PlayerPrefs.GetInt($"UsedCard{usedCard._name}"));
         }
         else
         {

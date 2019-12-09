@@ -16,8 +16,8 @@ public class PlayerControllerLevel01 : MonoBehaviour
     [SerializeField] private GameObject _scripts = null;
     [SerializeField] private GameObject _screamSprite = null;
 
-    //[SerializeField] private AudioClip _scream = null;
-    //private AudioSource _audio;
+    [SerializeField] private AudioClip _scream = null;
+    private AudioSource _audio;
 
     private Rigidbody2D _rigidBody2d;
     private Animator _animator;    
@@ -32,7 +32,7 @@ public class PlayerControllerLevel01 : MonoBehaviour
         _rendererColor = _scripts.GetComponent<ColorCatRenderer>();        
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        //_audio = GetComponent<AudioSource>();
+        _audio = GetComponent<AudioSource>();
 
 
         GetComponent<SpriteRenderer>().color = _rendererColor.SetColor(_load.CatsColor());
@@ -107,17 +107,9 @@ public class PlayerControllerLevel01 : MonoBehaviour
         }
     }
 
-   /*public void CatScream()
-    {
-        this._counter += 1;
-        if (_counter == _needTimer)
-        {
-            _scripts.GetComponent<UILevel01>().addMajorProgress(-0.1f);
-            _screamSprite.SetActive(true);
-            this._counter = 0;
-        }
-        
-        //_audio.PlayOneShot(_scream);
-    }*/
+   public void CatScream()
+   {
+      _audio.PlayOneShot(_scream);
+   }
 
 }

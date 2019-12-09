@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
@@ -56,5 +57,9 @@ public class SaveDate
     public void TutorialPanel (int tutorialCompleted)
     {
         PlayerPrefs.SetInt("TutorialCompleted", tutorialCompleted);        
+    }
+    public void UsedCard(Skill usedCard)
+    {
+        PlayerPrefs.SetInt($"UsedCard{usedCard._name}", Convert.ToInt32(usedCard._usedСard));
     }
 }

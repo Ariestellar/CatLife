@@ -345,7 +345,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 875411919}
   m_OnClick:
     m_PersistentCalls:
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.18039216}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1089,6 +1089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ff6fb1a030dfc4da4c4247db1a417d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _checkingFirstRun: 0
+  _buttonContinue: {fileID: 875411916}
 --- !u!4 &1781763775
 Transform:
   m_ObjectHideFlags: 0
